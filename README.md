@@ -16,3 +16,19 @@
   ### Example
 
    `const val MAX_USER_COUNT = 100`
+  
+
+### 2. `lateinit` keyword ?
+  - `lateinit` in kotlin is useful scenario when we do not want to initialize a variable at the time of the declaration and want to
+    initialize it at some later point in time, but we make sure that we initialize it before use.
+  - `private lateinit var hello: HelloWorld`
+  - `lateinit` is non-nullable
+
+
+### 3. `lazy` keyword ?
+ - `lazy` in Kotlin is useful in a scenario when we want to create an object inside a class, but that object creation is expensive and
+   that might lead to a delay in the creation of the object that is dependent on that expensive object.
+ - `private val mentor: Mentor by lazy { Mentor() }`
+ - Object will get initialized only when it is accessed for the first time, else it will not get initialized.
+ - Can be only used with the val keyword, hence read-only property
+  
