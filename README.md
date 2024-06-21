@@ -31,4 +31,21 @@
  - `private val mentor: Mentor by lazy { Mentor() }`
  - Object will get initialized only when it is accessed for the first time, else it will not get initialized.
  - Can be only used with the val keyword, hence read-only property
-  
+
+### 3. `inline` function ?
+In Kotlin, the inline keyword is used to optimize higher-order functions by reducing the overhead associated with function calls, particularly for lambda expressions. 
+When a function is marked with the inline modifier, the compiler replaces the function call with the actual code of the function, thus eliminating the call overhead and potentially enabling further optimizations.
+
+When the function code is very small, it's a good idea to make the function inline.
+
+```kotlin
+fun guide() {
+    print("guide start")
+    teach()
+    print("guide end")
+}
+
+inline fun teach() {
+    print("teach")
+}
+```
