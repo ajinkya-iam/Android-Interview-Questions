@@ -32,7 +32,7 @@
  - Object will get initialized only when it is accessed for the first time, else it will not get initialized.
  - Can be only used with the val keyword, hence read-only property
 
-### 3. `inline` function ?
+### 4. `inline` function ?
 In Kotlin, the inline keyword is used to optimize higher-order functions by reducing the overhead associated with function calls, particularly for lambda expressions. 
 When a function is marked with the inline modifier, the compiler replaces the function call with the actual code of the function, thus eliminating the call overhead and potentially enabling further optimizations.
 
@@ -49,3 +49,38 @@ inline fun teach() {
     print("teach")
 }
 ```
+
+### 4. Sealed Class ?
+- `sealed class` is a class that restricts the inheritance hierarchy. It can have a limited set of subclasses defined within the same file.
+- A sealed class itself is always an abstract class, and as a result
+
+``` kotlin
+sealed class SealedExample<T> {
+    data class Success<T>(val data: T) : SealedExample<T>()
+    data class Error<T>(val error: T) : SealedExample<T>()
+}
+
+class SealedExampleHandler {
+
+    fun <T> handleExample(example: SealedExample<T>) {
+        when (example) {
+            is SealedExample.Success -> {
+                println("Success with data: ${example.data}")
+            }
+            is SealedExample.Error -> {
+                println("Error with message: ${example.error}")
+            }
+        }
+    }
+}
+
+fun main() {
+    val successExample: SealedExample<String> = SealedExample.Success("Operation successful")
+    val errorExample: SealedExample<String> = SealedExample.Error("Something went wrong")
+
+    val handler = SealedExampleHandler()
+    handler.handleExample(successExample)
+    handler.handleExample(errorExample)
+}
+```
+
