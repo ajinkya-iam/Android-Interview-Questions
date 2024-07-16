@@ -84,3 +84,16 @@ fun main() {
 }
 ```
 
+### 5. `init` block ?
+- In Kotlin, an init block is used to initialize an object. It runs as part of the primary constructor and allows you to perform setup operations when an instance of a class is created.
+- You can have multiple init blocks in a class, and they will be executed in the order they appear in the class body.
+- `init` block run after primary constructor and before secondary constructor. 
+
+``` kotlin
+  class Person(val name: String, val age: Int) {
+    init {
+        println("Person's name is $name and age is $age")
+    }
+  }
+```
+
