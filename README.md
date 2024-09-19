@@ -111,6 +111,52 @@ fun String.print() {
 
 "Hello, World!".print()  // Prints: Hello, World!
 ```
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+## 1. Data Class
+A data class in Kotlin is a class specifically designed to hold data. Kotlin provides several automatically generated functions for data classes, which helps reduce boilerplate code. These include methods like `toString()`, `equals()`, `hashCode()`, and `copy()`.
+### Key Features of a Data Class:
+
+1. Primary Constructor with Parameters: A data class must have at least one parameter in its primary constructor. These parameters define the properties of the data class.
+
+2. Automatically Generated Methods:
+- `toString()`: Provides a string representation of the object for easier debugging.
+- `equals()`: Checks if two objects are equal based on their property values.
+- `hashCode()`: Provides a unique code based on the property values, used for hash-based collections.
+- `copy()`: Creates a copy of the object with the option to modify some properties.
+
+### Example : 
+
+```kotlin
+data class User(val name: String, val age: Int)
+```
+
+With this simple definition, Kotlin automatically provides useful methods for this class:
+
+```kotlin
+val user1 = User("Alice", 30)
+val user2 = User("Alice", 30)
+
+// toString()
+println(user1)  // Output: User(name=Alice, age=30)
+
+// equals()
+println(user1 == user2)  // Output: true
+
+// copy()
+val user3 = user1.copy(age = 35)
+println(user3)  // Output: User(name=Alice, age=35)
+```
+
+### Use Case:
+Data classes are ideal when you need to store simple data structures like user details, configuration settings, or any other group of values where you care more about storing data than behavior.
+
+They reduce boilerplate code while ensuring the class has useful, predefined functionality!
+
+
+
+
 -----------------------------------------------------------------------------------------------------------------------------------
 
 ### 1. Advantage of `const` keyword ? 
