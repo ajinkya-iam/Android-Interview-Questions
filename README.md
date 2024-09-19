@@ -1,6 +1,113 @@
 # Android-Interview-Questions
 
-## Kotlin 
+## Basic Of Kotlin
+
+### 1. Variables
+Kotlin has two types of variables:
+
+- `val`: Immutable (read-only) variables. You can’t reassign them.
+- `var`: Mutable variables that can be changed.
+
+``` kotlin
+val name = "Kotlin"  // Read-only
+var age = 10         // Can be reassigned
+```
+
+### 2. Functions
+In Kotlin, functions are defined using the `fun` keyword.
+
+``` kotlin
+fun greet() {
+    println("Hello, Kotlin!")
+}
+
+fun add(a: Int, b: Int): Int {
+    return a + b
+}
+```
+
+### 3. Control Flow
+Kotlin uses standard control flow structures like `if`, `when`, `for`, and `while`.
+
+- `if-else`:
+
+```kotlin
+val max = if (a > b) a else b
+```
+- `when`: Kotlin’s alternative to `switch` statements.
+```kotlin
+when (x) {
+    1 -> print("One")
+    2 -> print("Two")
+    else -> print("Unknown")
+}
+```
+
+### 4. Null Safety
+Kotlin reduces `NullPointerExceptions` with nullable types.
+```kotlin
+var name: String? = "Kotlin"  // Nullable type
+name = null
+```
+You can use the ?. operator to safely access nullable variables or !! to force access.
+
+```kotlin
+println(name?.length)   // Safe call
+println(name!!.length)  // Force unwrapping (dangerous if null)
+```
+
+### 5. Classes and Objects
+Kotlin supports object-oriented programming with classes and objects.
+
+```kotlin
+class Person(val name: String, var age: Int) {
+    fun display() {
+        println("$name is $age years old.")
+    }
+}
+
+val person = Person("John", 25)
+person.display()  // John is 25 years old.
+```
+
+### 6. Data Classes
+Data classes are used to hold data and automatically generate useful methods like `toString()`, `equals()`, and `hashCode()`.
+
+```kotlin
+data class User(val name: String, val age: Int)
+
+val user = User("Alice", 30)
+println(user)  // User(name=Alice, age=30)
+```
+### 7. Collections
+Kotlin has powerful collection types like `List`, `Set`, and `Map`.
+
+```kotlin
+val numbers = listOf(1, 2, 3, 4)
+val mutableNumbers = mutableListOf(1, 2, 3)
+
+val userMap = mapOf("name" to "Alice", "age" to 30)
+```
+
+### 8. Lambdas
+Kotlin supports functional programming with lambda expressions.
+
+```kotlin
+val sum = { a: Int, b: Int -> a + b }
+println(sum(10, 20))  // 30
+```
+
+### 9. Extension Functions
+You can add functions to existing classes without modifying them.
+
+```kotlin
+fun String.print() {
+    println(this)
+}
+
+"Hello, World!".print()  // Prints: Hello, World!
+```
+-----------------------------------------------------------------------------------------------------------------------------------
 
 ### 1. Advantage of `const` keyword ? 
 - Const value replaced at complie time, there is no overhead at runtime.
