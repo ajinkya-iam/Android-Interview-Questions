@@ -44,16 +44,20 @@ when (x) {
 ```
 
 ### 4. Null Safety
-Kotlin reduces `NullPointerExceptions` with nullable types.
-```kotlin
-var name: String? = "Kotlin"  // Nullable type
-name = null
-```
-You can use the ?. operator to safely access nullable variables or !! to force access.
+Kotlin's type system is designed to eliminate null pointer exceptions by distinguishing between nullable and non-nullable types.
+
+- Use `?` to mark a variable as nullable.
+- Use `?.` to safely access nullable types.
+- Use `!!` to force a nullable type to a non-null type (may cause crash if null).
+
 
 ```kotlin
-println(name?.length)   // Safe call
-println(name!!.length)  // Force unwrapping (dangerous if null)
+var name: String? = "Kotlin"  // Nullable
+name = null
+
+println(name?.length)  // Safe call
+println(name!!.length) // Throws exception if name is null
+
 ```
 
 ### 5. Classes and Objects
