@@ -155,6 +155,81 @@ Data classes are ideal when you need to store simple data structures like user d
 They reduce boilerplate code while ensuring the class has useful, predefined functionality!
 
 
+## 2. Collections
+
+In Kotlin, collections are used to group multiple elements into a single entity. Kotlin provides three main types of collections:
+
+### 1. List
+A List is an ordered collection that allows duplicates. Kotlin has both immutable and mutable versions of lists:
+
+- Immutable List: Cannot be modified (read-only).
+- Mutable List: Can be modified (add, remove elements).
+
+Immutable List Example:
+```kotlin
+val numbers = listOf(1, 2, 3, 4)
+println(numbers[0])  // Output: 1
+```
+
+Mutable List Example:
+```kotlin
+val mutableNumbers = mutableListOf(1, 2, 3)
+mutableNumbers.add(4)
+println(mutableNumbers)  // Output: [1, 2, 3, 4]
+```
+
+### 2. Set
+A Set is a collection of unique elements. It does not allow duplicates, and elements may or may not be in a specific order.
+
+- Immutable Set: Can't be changed after creation.
+- Mutable Set: Allows modification of elements.
+
+Immutable Set Example:
+
+```kotlin
+val uniqueNumbers = setOf(1, 2, 2, 3)
+println(uniqueNumbers)  // Output: [1, 2, 3]
+```
+
+Mutable Set Example:
+
+```kotlin
+val mutableSet = mutableSetOf(1, 2, 3)
+mutableSet.add(4)
+println(mutableSet)  // Output: [1, 2, 3, 4]
+```
+
+### 3. Map
+A Map is a collection of key-value pairs where each key is unique, and values can be duplicated.
+
+- Immutable Map: Cannot modify the key-value pairs.
+- Mutable Map: Allows adding, removing, or modifying key-value pairs.
+
+Immutable Map Example:
+
+```kotlin
+val userMap = mapOf("name" to "Alice", "age" to 30)
+println(userMap["name"])  // Output: Alice
+```
+
+Mutable Map Example:
+
+```kotlin
+val mutableUserMap = mutableMapOf("name" to "Alice", "age" to 30)
+mutableUserMap["age"] = 35  // Modify the value of "age"
+println(mutableUserMap)  // Output: {name=Alice, age=35}
+```
+
+### Key Points:
+- Immutable Collections: These are read-only and created with functions like `listOf()`, `setOf()`, and `mapOf()`.
+- Mutable Collections: These can be modified and are created with functions like `mutableListOf()`, `mutableSetOf()`, and `mutableMapOf()`.
+
+### Use Case:
+- Use `List` when order matters and duplicates are allowed.
+- Use `Set` when you need unique elements and don’t care about order.
+- Use `Map` for key-value pairs, especially when you need to quickly retrieve values based on keys.
+  
+Kotlin collections are rich in utility functions like filter(), map(), reduce(), and more for processing data efficiently.
 
 
 -----------------------------------------------------------------------------------------------------------------------------------
